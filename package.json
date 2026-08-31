@@ -1,0 +1,75 @@
+{
+  "name": "@liushutan/dsh-skills-manager",
+  "version": "0.1.30",
+  "description": "NPM-installable DSH Web plugin for safely loading and managing skills across DSH and common local Agents.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liushutan/dsh-skills-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/liushutan/dsh-skills-manager/issues"
+  },
+  "homepage": "https://github.com/liushutan/dsh-skills-manager#readme",
+  "type": "module",
+  "packageManager": "pnpm@11.22.0",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "cordis.patch.yml",
+    "CHANGELOG.md",
+    "CHANGELOG.zh-CN.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-locale"
+      ],
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "test": "node test/core-test.mjs && node test/locale-test.mjs",
+    "pack:check": "npm pack --dry-run --json",
+    "prepublishOnly": "npm test"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.1 <5.0.0",
+    "@deepseek-ai/dsh-client-locale": ">=0.1.0-rc.0 <0.2.0",
+    "@deepseek-ai/dsh-client-runtime": ">=0.1.0-rc.0 <0.2.0",
+    "@deepseek-ai/dsh-client-ui-slots": ">=0.1.0-rc.0 <0.2.0",
+    "@deepseek-ai/dsh-host-webserver": ">=0.1.0-rc.5 <0.2.0",
+    "@deepseek-ai/dsh-skill": ">=0.1.0-rc.5 <0.2.0",
+    "@deepseek-ai/dsh-tools": ">=0.1.0-rc.5 <0.2.0",
+    "react": "^18.2.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "skill",
+    "skills",
+    "cordis"
+  ],
+  "dependencies": {
+    "fflate": "0.8.3"
+  }
+}
