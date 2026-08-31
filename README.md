@@ -51,7 +51,7 @@ This product can be installed independently or used through the desktop app or W
 | --- | --- |
 | [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) | The host runtime that provides models, sessions, tools, and the plugin system |
 | [DSH Doubao Desktop](https://github.com/liushutan/dsh-codex-desktop) | A ready-to-install desktop product with this product and the other five feature products built in |
-| Six feature products | [Codex UI](https://github.com/liushutan/dsh-codex-ui) · [IM Connect](https://github.com/liushutan/dsh-im-connect) · [Automation](https://github.com/liushutan/dsh-automation) · [Skills Manager](https://github.com/liushutan/dsh-skills-manager) · [Archive Manager](https://github.com/liushutan/dsh-archive-manager) · [Agency Agents](https://github.com/liushutan/dsh-agency-agents) |
+| Six feature products | [Codex UI](https://github.com/liushutan/dsh-doubao-ui) · [IM Connect](https://github.com/liushutan/dsh-im-connect) · [Automation](https://github.com/liushutan/dsh-automation) · [Skills Manager](https://github.com/liushutan/dsh-skills-manager) · [Archive Manager](https://github.com/liushutan/dsh-archive-manager) · [Agency Agents](https://github.com/liushutan/dsh-agency-agents) |
 
 ## Prerequisites
 
