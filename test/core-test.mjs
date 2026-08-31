@@ -144,7 +144,7 @@ if (process.platform !== "win32") {
 // ── 客户端装配约束 ──
 // 客户端 bundle 由宿主 AMD 加载，无法在零依赖测试中直接挂载；仅保留协议常量锚点。
 const clientSource = await readFile(new URL("../lib/client.js", import.meta.url), "utf8");
-ok(clientSource.includes('id: "@michengai/dsh-skills-manager"'), "client registers the scoped package module ID");
+ok(clientSource.includes('id: "@liushutan/dsh-skills-manager"'), "client registers the scoped package module ID");
 ok(clientSource.includes('"x-dsh-skills-manager": "1"'), "client sends the mutation request marker");
 ok(clientSource.includes('className: "dssm-modal" + (props.wide ? " dssm-modal-wide" : "") + (props.className ? " " + props.className : "")'), "dialogs use the shared adaptive modal component");
 ok(clientSource.includes('.dssm-modal{box-sizing:border-box;display:flex;width:min(560px,100%)!important;'), "all plugin dialogs stay compact against host stretch");
