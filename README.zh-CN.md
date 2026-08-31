@@ -13,7 +13,7 @@
   [![许可证：Apache-2.0](https://img.shields.io/badge/许可证-Apache--2.0-blue.svg)](LICENSE)
   [![npm package](https://img.shields.io/npm/v/%40michengai%2Fdsh-skills-manager.svg?label=npm%20package)](https://www.npmjs.com/package/@michengai/dsh-skills-manager)
   [![npm 下载量](https://img.shields.io/npm/dt/%40michengai%2Fdsh-skills-manager.svg?label=npm%20%E4%B8%8B%E8%BD%BD%E9%87%8F)](https://www.npmjs.com/package/@michengai/dsh-skills-manager)
-  [![DSH Web Plugin](https://img.shields.io/badge/DSH%20Web-Plugin-0f766e.svg)](https://github.com/MichengAI/dsh-skills-manager)
+  [![DSH Web Plugin](https://img.shields.io/badge/DSH%20Web-Plugin-0f766e.svg)](https://github.com/liushutan/dsh-skills-manager)
   [![Node.js 20 or later](https://img.shields.io/badge/Node.js-20%20or%20later-339933.svg?logo=node.js&logoColor=white)](https://nodejs.org/)
 </div>
 
@@ -50,8 +50,8 @@ DSH 本地技能移入回收站前需要确认；永久删除前仍可恢复：
 | 产品 | 与本产品的关系 |
 | --- | --- |
 | [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) | 本产品的运行宿主，提供模型、会话、工具和插件系统 |
-| [DSH Codex Desktop](https://github.com/MichengAI/dsh-codex-desktop) | 下载安装即用的桌面产品，已内置本产品和其他 5 个功能产品 |
-| 6 个功能产品 | [Codex UI](https://github.com/MichengAI/dsh-codex-ui) · [IM Connect](https://github.com/MichengAI/dsh-im-connect) · [Automation](https://github.com/MichengAI/dsh-automation) · [Skills Manager](https://github.com/MichengAI/dsh-skills-manager) · [Archive Manager](https://github.com/MichengAI/dsh-archive-manager) · [Agency Agents](https://github.com/MichengAI/dsh-agency-agents) |
+| [DSH Codex Desktop](https://github.com/liushutan/dsh-codex-desktop) | 下载安装即用的桌面产品，已内置本产品和其他 5 个功能产品 |
+| 6 个功能产品 | [Codex UI](https://github.com/liushutan/dsh-codex-ui) · [IM Connect](https://github.com/liushutan/dsh-im-connect) · [Automation](https://github.com/liushutan/dsh-automation) · [Skills Manager](https://github.com/liushutan/dsh-skills-manager) · [Archive Manager](https://github.com/liushutan/dsh-archive-manager) · [Agency Agents](https://github.com/liushutan/dsh-agency-agents) |
 
 ## 前置条件
 
@@ -76,14 +76,14 @@ DSH 本地技能移入回收站前需要确认；永久删除前仍可恢复：
 从源码安装：
 
 ```text
-请从 https://github.com/MichengAI/dsh-skills-manager 安装 DSH 插件：克隆仓库，执行 npm install 和 npm test，再在该目录执行 dsh plugin --profile web add .。不要只复制 lib。然后执行 dsh --profile web --dump-config，确认已挂载 skills-manager，并提醒我重启 DSH Web 后硬刷新浏览器。
+请从 https://github.com/liushutan/dsh-skills-manager 安装 DSH 插件：克隆仓库，执行 npm install 和 npm test，再在该目录执行 dsh plugin --profile web add .。不要只复制 lib。然后执行 dsh --profile web --dump-config，确认已挂载 skills-manager，并提醒我重启 DSH Web 后硬刷新浏览器。
 ```
 
 | 产品 | 怎么用 |
 | --- | --- |
 | DSH | 把上面其中一句发给当前会话。 |
 | Codex | 把上面其中一句发给 Codex，让它在本机执行安装。 |
-| WorkBuddy | 把上面其中一句发给 WorkBuddy；源码安装也可同时粘贴仓库地址 `https://github.com/MichengAI/dsh-skills-manager`。 |
+| WorkBuddy | 把上面其中一句发给 WorkBuddy；源码安装也可同时粘贴仓库地址 `https://github.com/liushutan/dsh-skills-manager`。 |
 
 Codex 和 WorkBuddy 只负责代装；装好后仍要打开 DSH Web 使用「设置 → 技能」。
 
@@ -118,7 +118,7 @@ dsh --profile web --dump-config
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $OutputEncoding = [System.Text.Encoding]::UTF8
 Set-Location D:\Repository\deepseek-harness-plugin
-git clone https://github.com/MichengAI/dsh-skills-manager.git
+git clone https://github.com/liushutan/dsh-skills-manager.git
 Set-Location .\dsh-skills-manager
 npm install
 npm test

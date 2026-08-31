@@ -13,7 +13,7 @@
   [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
   [![npm package](https://img.shields.io/npm/v/%40michengai%2Fdsh-skills-manager.svg?label=npm%20package)](https://www.npmjs.com/package/@michengai/dsh-skills-manager)
   [![npm downloads](https://img.shields.io/npm/dt/%40michengai%2Fdsh-skills-manager.svg?label=npm%20downloads)](https://www.npmjs.com/package/@michengai/dsh-skills-manager)
-  [![DSH Web Plugin](https://img.shields.io/badge/DSH%20Web-Plugin-0f766e.svg)](https://github.com/MichengAI/dsh-skills-manager)
+  [![DSH Web Plugin](https://img.shields.io/badge/DSH%20Web-Plugin-0f766e.svg)](https://github.com/liushutan/dsh-skills-manager)
   [![Node.js 20 or later](https://img.shields.io/badge/Node.js-20%20or%20later-339933.svg?logo=node.js&logoColor=white)](https://nodejs.org/)
 </div>
 
@@ -50,8 +50,8 @@ This product can be installed independently or used through the desktop app or W
 | Product | Relationship to this product |
 | --- | --- |
 | [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) | The host runtime that provides models, sessions, tools, and the plugin system |
-| [DSH Codex Desktop](https://github.com/MichengAI/dsh-codex-desktop) | A ready-to-install desktop product with this product and the other five feature products built in |
-| Six feature products | [Codex UI](https://github.com/MichengAI/dsh-codex-ui) · [IM Connect](https://github.com/MichengAI/dsh-im-connect) · [Automation](https://github.com/MichengAI/dsh-automation) · [Skills Manager](https://github.com/MichengAI/dsh-skills-manager) · [Archive Manager](https://github.com/MichengAI/dsh-archive-manager) · [Agency Agents](https://github.com/MichengAI/dsh-agency-agents) |
+| [DSH Codex Desktop](https://github.com/liushutan/dsh-codex-desktop) | A ready-to-install desktop product with this product and the other five feature products built in |
+| Six feature products | [Codex UI](https://github.com/liushutan/dsh-codex-ui) · [IM Connect](https://github.com/liushutan/dsh-im-connect) · [Automation](https://github.com/liushutan/dsh-automation) · [Skills Manager](https://github.com/liushutan/dsh-skills-manager) · [Archive Manager](https://github.com/liushutan/dsh-archive-manager) · [Agency Agents](https://github.com/liushutan/dsh-agency-agents) |
 
 ## Prerequisites
 
@@ -76,14 +76,14 @@ Install the latest DSH plugin @michengai/dsh-skills-manager into my local web pr
 From source:
 
 ```text
-Install the DSH plugin from source at https://github.com/MichengAI/dsh-skills-manager: clone it, run npm install and npm test, then run dsh plugin --profile web add . from that directory. Do not copy lib by itself. Then run dsh --profile web --dump-config, confirm skills-manager is mounted, and remind me to restart DSH Web and hard-refresh the browser.
+Install the DSH plugin from source at https://github.com/liushutan/dsh-skills-manager: clone it, run npm install and npm test, then run dsh plugin --profile web add . from that directory. Do not copy lib by itself. Then run dsh --profile web --dump-config, confirm skills-manager is mounted, and remind me to restart DSH Web and hard-refresh the browser.
 ```
 
 | Product | How to use it |
 | --- | --- |
 | DSH | Send one of the sentences above to the current session. |
 | Codex | Send one of the sentences above to Codex and let it install locally. |
-| WorkBuddy | Send one of the sentences above to WorkBuddy; for a source install you can also paste `https://github.com/MichengAI/dsh-skills-manager`. |
+| WorkBuddy | Send one of the sentences above to WorkBuddy; for a source install you can also paste `https://github.com/liushutan/dsh-skills-manager`. |
 
 Codex and WorkBuddy only install the plugin. After that, open DSH Web and use **Settings → Skills**.
 
@@ -118,7 +118,7 @@ Use this for debugging or unpublished changes. The cloned directory becomes the 
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $OutputEncoding = [System.Text.Encoding]::UTF8
 Set-Location D:\Repository\deepseek-harness-plugin
-git clone https://github.com/MichengAI/dsh-skills-manager.git
+git clone https://github.com/liushutan/dsh-skills-manager.git
 Set-Location .\dsh-skills-manager
 npm install
 npm test
