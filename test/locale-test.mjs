@@ -264,9 +264,9 @@ const fakeCtx = {
   },
 };
 bundle.apply(fakeCtx);
-ok(registerOptions !== null && registerOptions.name === "settings.section", "apply registers the settings.section entry");
-ok(registerOptions !== null && registerOptions.locale === "skills-manager", "settings.section registration declares the locale namespace");
-ok(registerOptions !== null && typeof registerOptions.label === "function", "settings.section label is a thunk (re-read per locale revision)");
+// 与专家页一致：设置弹框不再显示技能分区，技能仅以右侧独立整页提供。
+ok(registerOptions === null, "apply no longer registers a settings.section entry (independent surface only, like the experts page)");
+ok(!source.includes('inject("settings.section"'), "client.js contains no settings.section registration");
 
 // ── 独立整页契约：conversation 插槽 priority:-1 接管右列，事件 detail.handled 置 true ──
 let toggleHandler = null;
@@ -299,7 +299,6 @@ const closeDetail = { action: "close" };
 toggleHandler({ detail: closeDetail });
 ok(closeDetail.handled === true && conversationOptions === null, "close action disposes the surface and stays a no-op afterwards");
 globalThis.document = previousSurfaceDocument;
-ok(registerOptions !== null && registerOptions.icon === "skill", "settings.section registers the skill nav icon");
 
 console.log(`\n${passed} passed, ${failed} failed`);
 if (failed > 0) process.exit(1);
