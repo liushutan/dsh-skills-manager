@@ -267,6 +267,38 @@ bundle.apply(fakeCtx);
 ok(registerOptions !== null && registerOptions.name === "settings.section", "apply registers the settings.section entry");
 ok(registerOptions !== null && registerOptions.locale === "skills-manager", "settings.section registration declares the locale namespace");
 ok(registerOptions !== null && typeof registerOptions.label === "function", "settings.section label is a thunk (re-read per locale revision)");
+
+// ── 独立整页契约：conversation 插槽 priority:-1 接管右列，事件 detail.handled 置 true ──
+let toggleHandler = null;
+let conversationOptions = null;
+let conversationDisposed = 0;
+const surfaceDocument = {
+  addEventListener(type, handler) { if (type === "dsh-dssm-skills-toggle") toggleHandler = handler; },
+  removeEventListener(type) { if (type === "dsh-dssm-skills-toggle") toggleHandler = null; },
+};
+const previousSurfaceDocument = globalThis.document;
+globalThis.document = surfaceDocument;
+bundle.apply({
+  effect(fn) { return fn(); },
+  locale: { register() { return () => {}; }, bind() { return () => "title"; } },
+  slots: {
+    inject() {},
+    register(opts) { conversationOptions = opts; return function () { conversationDisposed++; conversationOptions = null; }; },
+  },
+});
+ok(toggleHandler !== null, "apply listens for the sidebar skills toggle event");
+const toggleDetail = { action: "toggle" };
+toggleHandler({ detail: toggleDetail });
+ok(toggleDetail.handled === true, "toggle handler marks the event as handled");
+ok(conversationOptions !== null && conversationOptions.name === "conversation", "toggle registers the conversation slot to take over the right column");
+ok(conversationOptions !== null && conversationOptions.priority === -1, "conversation registration uses priority -1 like the experts page");
+ok(conversationOptions !== null && conversationOptions.locale === "skills-manager", "conversation registration declares the locale namespace");
+toggleHandler({ detail: { action: "toggle" } });
+ok(conversationDisposed === 1 && conversationOptions === null, "a second toggle disposes the skills surface");
+const closeDetail = { action: "close" };
+toggleHandler({ detail: closeDetail });
+ok(closeDetail.handled === true && conversationOptions === null, "close action disposes the surface and stays a no-op afterwards");
+globalThis.document = previousSurfaceDocument;
 ok(registerOptions !== null && registerOptions.icon === "skill", "settings.section registers the skill nav icon");
 
 console.log(`\n${passed} passed, ${failed} failed`);
